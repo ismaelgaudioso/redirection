@@ -5,7 +5,6 @@ class Control extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->model("data_model");
 		$this->load->view("control");
 	}
 
