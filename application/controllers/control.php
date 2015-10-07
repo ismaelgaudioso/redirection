@@ -8,8 +8,9 @@ class Control extends CI_Controller {
 		$this->load->view("control");
 	}
 
-	public function updateIp($ip)
+	public function updateIp()
 	{
-		echo "IP: ".$this->input->ip_address();
+		$this->config_data->updateIp($this->input->ip_address());
+		echo $this->input->ip_address();
 	}
 }
