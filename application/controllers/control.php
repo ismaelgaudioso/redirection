@@ -13,4 +13,11 @@ class Control extends CI_Controller {
 		$this->config_data->updateIp($this->input->ip_address());
 		echo $this->input->ip_address();
 	}
+	public function test()
+	{
+		$test = $this->config_data->getTestData();
+		echo "<pre>";
+		var_dump($test);
+
+	}
 }
