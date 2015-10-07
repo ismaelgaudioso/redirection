@@ -49,7 +49,7 @@ class Config_data extends CI_Model {
 	public function updateIp($ip)
 	{
 		$update = "UPDATE config SET config_value=".$ip." WHERE config_id=1";
-		$query_result = $this->db->query($sql);
+		$query_result = $this->db->query($update);
 	}
 
 }
