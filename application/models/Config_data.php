@@ -46,6 +46,27 @@ class Config_data extends CI_Model {
 		return $data_connection;
 	}
 
+	public function get_current_ip()
+	{
+		$sql = 'SELECT * FROM config WHERE config_id=1 LIMIT 1';
+		$query_result = $this->db->query($sql)->result();
+		
+		$ip 			= $query_result[0]->config_value;
+		$last_update 	= $query_result[0]->last_date;
+		
+		$result = array("address"=>$ip,"last_update"=>$last_update);
+
+		return $result;	
+	}
+
+	public function get_redirections()
+	{
+		$sql = 'SELECT * FROM config WHERE (config_type="redirection" OR config_type="redirection_ssl")';
+		$query_result = $this->db->query($sql)->result();
+
+		return $query_result;
+	}
+
 	public function updateIp($ip)
 	{
 		$data = array(
