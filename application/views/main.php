@@ -25,7 +25,7 @@
 		        	<ul class="nav navbar-nav navbar-right">
 			            <li class="active"><a href="#">Home</a></li>
 			            <li><a href="config">Config</a></li>
-			            <li><a href="#logout">Logout</a></li>
+			            <li><a href="<?php echo base_url(); ?>logout">Logout</a></li>
 			        </ul>
 		        </div>
        		</div>
