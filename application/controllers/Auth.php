@@ -47,7 +47,9 @@ class Auth extends CI_Controller {
 	// log the user in
 	function login()
 	{
-		$this->data['title'] = "Login";
+		// set de css page
+		$this->data["css"] = array(base_url("assets/css/signin.css"));
+		$this->data['page_title'] = "Login";
 
 		//validate form input
 		$this->form_validation->set_rules('identity', 'Identity', 'required');
@@ -811,7 +813,7 @@ class Auth extends CI_Controller {
 
 		$this->viewdata = (empty($data)) ? $this->data: $data;
 
-		$view_html = $this->load->view($view, $this->viewdata, $returnhtml);
+		$view_html = $this->load->template($view, $this->viewdata, $returnhtml);
 
 		if ($returnhtml) return $view_html;//This will return html on 3rd argument being true
 	}

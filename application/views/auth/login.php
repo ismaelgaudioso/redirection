@@ -1,28 +1,25 @@
-<h1><?php echo lang('login_heading');?></h1>
-<p><?php echo lang('login_subheading');?></p>
+<form class="form-signin" action="<?php echo base_url();?>auth/login" method="post" accept-charset="utf-8">
 
-<div id="infoMessage"><?php echo $message;?></div>
+        <h2 class="form-signin-heading"><?php echo lang('login_heading');?></h2>
+        <p><?php echo lang('login_subheading');?></p>
 
-<?php echo form_open("auth/login");?>
+        <?php if($message): ?>
+        <div class="alert alert-danger" role="alert"><?php echo $message; ?></div>
+        <?php endif; ?>
 
-  <p>
-    <?php echo lang('login_identity_label', 'identity');?>
-    <?php echo form_input($identity);?>
-  </p>
+        <label for="identity" class="sr-only"><?php echo lang('login_identity_label', 'identity');?></label>
+        <input type="email" name="identity" id="identity" class="form-control" placeholder="Email address" required="" autofocus="" value="<?php echo $identity["value"]; ?>">
+        
+        <label for="password" class="sr-only">Password</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="">
+        
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="remember" value="1" id="remember"> <?php echo lang('login_remember_label', 'remember');?>
+          </label>
+        </div>
 
-  <p>
-    <?php echo lang('login_password_label', 'password');?>
-    <?php echo form_input($password);?>
-  </p>
-
-  <p>
-    <?php echo lang('login_remember_label', 'remember');?>
-    <?php echo form_checkbox('remember', '1', FALSE, 'id="remember"');?>
-  </p>
-
-
-  <p><?php echo form_submit('submit', lang('login_submit_btn'));?></p>
-
-<?php echo form_close();?>
-
-<p><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p>
+        <p><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p>
+        
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+</form>

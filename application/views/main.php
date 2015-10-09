@@ -1,14 +1,4 @@
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="description" content="Free Dynamic Direction. Point your dynamic IP to a hostname.">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Free Redirection</title>
-        <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>" />
-    </head>
-    <body>
+
         
         <nav class="navbar navbar-inverse navbar-fixed-top">
         	<div class="container">
@@ -24,7 +14,7 @@
 	        	<div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
 		        	<ul class="nav navbar-nav navbar-right">
 			            <li class="active"><a href="#">Home</a></li>
-			            <li><a href="config">Config</a></li>
+			            <li><a href="<?php echo base_url(); ?>config">Config</a></li>
 			            <li><a href="<?php echo base_url(); ?>logout">Logout</a></li>
 			        </ul>
 		        </div>
@@ -63,10 +53,3 @@
 	      </footer>
 	    </div>
 
-
-
-
-        <script type="text/javascript" src="<?php echo base_url("assets/js/jquery-2.1.4.min.js"); ?>"></script>
-		<script type="text/javascript" src="<?php echo base_url("assets/js/bootstrap.min.js"); ?>"></script>
-    </body>
-</html>

@@ -21,6 +21,6 @@ class Main extends MY_Controller {
 			);
 
 		$this->load->helper("url");
-		$this->load->view("main",$data);
+		$this->load->template("main",$data);
 	}
 }
