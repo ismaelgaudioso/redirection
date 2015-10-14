@@ -10,7 +10,14 @@ class Config extends MY_Controller {
 
 	public function index()
 	{
-		$this->load->template("config");
+		$this->load->helper("date");
+		$data = array(
+				"js" => array(base_url("assets/js/config-view.js")),
+				"redirections" => $this->config_data->get_redirections(),
+				"current_ip" => $this->config_data->get_current_ip(),
+
+			);
+		$this->load->template("config",$data);
 	}
 
 	

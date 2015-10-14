@@ -67,6 +67,14 @@ class Config_data extends CI_Model {
 		return $query_result;
 	}
 
+	public function get_redirection_with_id($id)
+	{
+		$sql = 'SELECT * FROM config WHERE (config_type="redirection" OR config_type="redirection_ssl") and (config_id = '.$id.')';
+		$query_result = $this->db->query($sql)->result();
+
+		return $query_result;
+	}
+
 	public function updateIp($ip)
 	{
 		$data = array(
