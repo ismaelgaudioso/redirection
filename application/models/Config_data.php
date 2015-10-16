@@ -77,11 +77,39 @@ class Config_data extends CI_Model {
 
 	public function updateIp($ip)
 	{
+		$this->load->helper("date");
+
 		$data = array(
-        	'config_value'  => $ip
+        	'config_value'  => $ip,
+        	'lasta_date' => time()
 		);
 		$this->db->where('config_id',1);
 		$this->db->update("config",$data);
+	}
+
+	public function delete_redirection($id)
+	{
+		$this->db->where('config_id',$id);
+		$this->db->delete("config");
+	}
+
+	public function insert_redirection($name,$description,$port,$ssl)
+	{
+
+		if($ssl)
+			$type = "redirection_ssl";
+		else
+			$type = "redirection";
+
+		$data = array(
+			'config_type' => $type,
+			'config_name' => $name,
+			'config_description' => $description,
+			'config_value' => $port
+		);
+
+		$this->db->insert("config",$data);
+
 	}
 
 }
