@@ -9,12 +9,20 @@
 			            <span class="icon-bar"></span>
 			            <span class="icon-bar"></span>
 			        </button>
-	        		<a class="navbar-brand" href="#">Free Redirection</a>
+	        		<a class="navbar-brand" href="#">REDIRECTOR</a>
 	        	</div>
 	        	<div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
 		        	<ul class="nav navbar-nav navbar-right">
 			            <li class="active"><a href="#">Home</a></li>
-			            <li><a href="<?php echo base_url(); ?>config">Config</a></li>
+			            <li>
+			            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Config <span class="caret"></span></a>
+			            	<ul class="dropdown-menu">
+			                  <li><a href="<?php echo base_url(); ?>config">General</a></li>
+			                  <li><a href="<?php echo base_url(); ?>auth">Manage users</a></li>
+			                  <li role="separator" class="divider"></li>
+			                  <li><a href="#">Stats</a></li>
+			                </ul>
+			            </li>
 			            <li><a href="<?php echo base_url(); ?>logout">Logout</a></li>
 			        </ul>
 		        </div>

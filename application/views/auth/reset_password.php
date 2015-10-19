@@ -1,6 +1,30 @@
-<h1><?php echo lang('reset_password_heading');?></h1>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+       	<div class="container">
+	        <div class="navbar-header">
+	        	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+			            <span class="sr-only">Toggle navigation</span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			            <span class="icon-bar"></span>
+			    </button>
+	        	<a class="navbar-brand" href="#">Free Redirection</a>
+	        </div>
+	        <div id="navbar" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+		     
+		    </div>
+       	</div>
+</nav>
 
-<div id="infoMessage"><?php echo $message;?></div>
+<?php if($message): ?>
+<div class="alert alert-info" role="alert" id="infoMessage"><?php echo $message;?></div>
+<?php endif; ?>
+
+
+
+
+<div class="container">
+
+	<h2>Create group</h2>
 
 <?php echo form_open('auth/reset_password/' . $code);?>
 
@@ -20,3 +44,5 @@
 	<p><?php echo form_submit('submit', lang('reset_password_submit_btn'));?></p>
 
 <?php echo form_close();?>
+
+</div>

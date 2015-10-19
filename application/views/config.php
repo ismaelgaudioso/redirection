@@ -16,7 +16,7 @@
 			            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Config <span class="caret"></span></a>
 			            	<ul class="dropdown-menu">
 			                  <li><a href="<?php echo base_url(); ?>config">General</a></li>
-			                  <li><a href="#">Manage users</a></li>
+			                  <li><a href="<?php echo base_url(); ?>auth">Manage users</a></li>
 			                  <li role="separator" class="divider"></li>
 			                  <li><a href="#">Stats</a></li>
 			                </ul>
@@ -28,9 +28,6 @@
     </nav>
 
 	<div class="container">
-	    
-
-
 	    <div class="panel panel-default" style="margin-top:30px;">
 		  <div class="panel-heading">
 		    <h3 class="panel-title">General Parameters</h3>
@@ -39,13 +36,14 @@
 
 		    <form class="form-inline">
 			  <div class="form-group">
-			    <label class="sr-only" for="address">Amount (in dollars)</label>
+			    <label class="sr-only" for="address">IP Address</label>
 			    <div class="input-group">
 			      <div class="input-group-addon">IP Address</div>
-			      <input type="text" class="form-control" id="address" placeholder="0.0.0.0" value="<?php echo($current_ip["address"]); ?>">
+			      <input type="text" class="form-control" id="address" placeholder="0.0.0.0" value="<?php echo($current_ip["address"]); ?>" readonly>
 			    </div>
 			  </div>
-			  <button type="submit" class="btn btn-primary">Change IP</button>
+			  <button id="changeIpButtonForm" class="btn btn-primary" data-id="1" data-toggle="modal" data-target="#changeIp" data-backdrop="static">Change IP</button>
+			  <button id="updateIpButtonForm" class="btn btn-primary" data-id="1" data-toggle="modal" data-target="#updateIp" data-backdrop="static">Update IP</button>
 			  
 			</form>
 			<div class="alert alert-info" style="margin-top:15px">Última actualización: <?php echo nice_date(unix_to_human($current_ip["last_update"],TRUE,'eu'),'d-m-Y h:m:s'); ?></div>
@@ -117,7 +115,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-primary" id="buttonEdit">Guardar</button>
       </div>
     </div>
   </div>
@@ -176,5 +174,48 @@
     </div>
   </div>
 </div>
+
+
+<div class="modal fade" id="changeIp" tabindex="-1" role="dialog" aria-labelledby="changeIp">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Delete redirection</h4>
+      </div>
+      <div class="modal-body">
+         <form>
+		  <div class="form-group">
+		    <label for="addressIp">IP Address</label>
+		    <input type="text" class="form-control" id="addressIp" placeholder="0.0.0.0" value="<?php echo($current_ip["address"]); ?>">
+		  </div>
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="buttonChangeIp" >Cambiar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="updateIp" tabindex="-1" role="dialog" aria-labelledby="updateIp">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Delete redirection</h4>
+      </div>
+      <div class="modal-body">
+         This action update the IP Address with your current public IP. Are you sure?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="buttonUpdateIp" >Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     

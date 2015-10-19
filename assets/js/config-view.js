@@ -21,7 +21,36 @@ $('#editRedirection').on('show.bs.modal', function (event) {
   	}
 
 
+  }).done(function(){
+
+    modal.find('.modal-footer #buttonEdit').on("click",function(){
+        
+        if(modal.find(".modal-body #sslEditCheckbox").is(":checked"))
+          ssl = true;
+        else
+          ssl = false;
+
+        var data = {
+            id: redirection_id,
+            name: modal.find(".modal-body #nameEditInput").val(),
+            description: modal.find(".modal-body #descriptionEditInput").val(),
+            port: modal.find(".modal-body #portEditInput").val(),
+            ssl: ssl};
+        
+        $.post( "ajax/updateRedirection", data)
+          .done( function(){
+            location.reload();
+          })
+          .fail( function(){
+            alert("Create error");
+          });        
+
+    });
+
+  }).fail(function(){
+    alert("Error on load redirection data");
   });
+
 });
 
 
@@ -39,10 +68,7 @@ $('#deleteRedirection').on('show.bs.modal', function (event) {
         .fail( function(){
           alert("Delete error");
         });
-
-  });
-
-  
+  }); 
 
 });
 
@@ -55,15 +81,71 @@ $('#newRedirection').on('show.bs.modal', function (event) {
   
   modal.find('.modal-footer #buttonCreate').on("click",function(){
       
-      name = modal.find(".modal-body #nameEditInput").val();
-      description = modal.find(".modal-body #descriptionEditInput").val();
-      port = modal.find(".modal-body #portEditInput").val();
-      ssl = modal.find(".modal-body #sslEditCheckbox").val();
-      
-      alert(name);
+      if(modal.find(".modal-body #sslEditCheckbox").is(":checked"))
+        ssl = true;
+      else
+        ssl = false;
 
+      var data = {
+          name: modal.find(".modal-body #nameEditInput").val(),
+          description: modal.find(".modal-body #descriptionEditInput").val(),
+          port: modal.find(".modal-body #portEditInput").val(),
+          ssl: ssl};
+      
+      $.post( "ajax/createRedirection", data)
+        .done( function(){
+          location.reload();
+        })
+        .fail( function(){
+          alert("Create error");
+        });     
+  });
+});
+
+$('#changeIp').on('show.bs.modal', function (event) {
+
+  var modal = $(this);
+
+  modal.find('.modal-footer #buttonChangeIp').on("click",function(){
+      
+      var data = {
+          ip: modal.find(".modal-body #addressIp").val(),
+      };
+      
+      $.post( "ajax/forceIp", data)
+        .done( function(){
+          location.reload();
+        })
+        .fail( function(){
+          alert("Change error");
+        });     
+  });
+  
+
+});
+
+$('#updateIp').on('show.bs.modal', function (event) {
+
+  var modal = $(this);
+
+  modal.find('.modal-footer #buttonUpdateIp').on("click",function(){      
+      
+      $.getJSON( "ajax/updateIp/")
+        .done( function(){
+          location.reload();
+        })
+        .fail( function(){
+          alert("Update error");
+        });
   });
 
   
 
+});
+
+$("#changeIpButtonForm").on("click", function(e) {
+    e.preventDefault();
+});
+$("#updateIpButtonForm").on("click", function(e) {
+    e.preventDefault();
 });
