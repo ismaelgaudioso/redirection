@@ -7,6 +7,7 @@ class Ajax extends MY_Controller {
     {
                 parent::__construct();
                 header('Content-Type: application/json');
+                $this->load->model("apikey");
     }
 
 	
@@ -68,5 +69,33 @@ class Ajax extends MY_Controller {
         $this->config_data->updateIp($this->input->ip_address());
         echo json_encode($this->input->ip_address());
     }
+
+
+    public function createApikey()
+    {
+
+        $name = $this->input->post("name", TRUE);
+
+        echo json_encode($this->apikey->insert_apikey($name));
+
+    }
+
+    public function deleteApikey($id)
+    {
+        if(!isset($id))
+            echo FALSE;
+        else
+            echo json_encode($this->apikey->delete_apikey($id));
+    }
+
+    public function regenerateApikey($id)
+    {
+        if(!isset($id))
+            echo FALSE;
+        else
+            echo json_encode($this->apikey->regenerate_apikey($id));
+    }
+
+    
 
 }

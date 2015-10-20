@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Config extends MY_Controller {
+class Clients extends MY_Controller {
 
 	public function __construct()
         {
@@ -11,14 +11,15 @@ class Config extends MY_Controller {
 	public function index()
 	{
 		$this->load->helper("date");
+		$this->load->model("apikey");
 		$data = array(
 				"page_title"=>"Configuration",
-				"js" => array(base_url("assets/js/config-view.js")),
-				"redirections" => $this->config_data->get_redirections(),
-				"current_ip" => $this->config_data->get_current_ip(),
+				"js" => array(base_url("assets/js/clients-view.js")),
+				"apikeys" => $this->apikey->get_apikeys(),
 
 			);
-		$this->load->template("config",$data);
+
+		$this->load->template("clients",$data);
 	}
 
 	

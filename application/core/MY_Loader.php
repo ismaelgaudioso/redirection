@@ -5,7 +5,10 @@ class MY_Loader extends CI_Loader {
     public function template($template_name, $vars = array(), $return = FALSE)
     {
         if(!isset($vars["page_title"]))
-            $vars["page_title"] = "Free Redirector";
+            $vars["page_title"] = "Redirector";
+
+        if(!isset($vars["app_name"]))
+            $vars["app_name"] = "Redirector";
 
 
         $vars["min_loads"] = array(
@@ -18,11 +21,13 @@ class MY_Loader extends CI_Loader {
 
         if($return):
             $content  = $this->view('templates/header', $vars, $return);
+            $content .= $this->view('templates/navbar', $vars, $return);
             $content .= $this->view($template_name, $vars, $return);
             $content .= $this->view('templates/footer', $vars, $return);
             return $content;
         else:
             $this->view('templates/header', $vars);
+            $this->view('templates/navbar', $vars);
             $this->view($template_name, $vars);
             $this->view('templates/footer', $vars);
         endif;
