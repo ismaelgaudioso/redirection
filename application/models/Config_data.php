@@ -75,6 +75,15 @@ class Config_data extends CI_Model {
 		return $query_result;
 	}
 
+	public function goRedirection($id)
+	{
+		$data = array(
+        	'last_date' => time()
+		);
+		$this->db->where('config_id',$id);
+		$this->db->update("config",$data);
+	}
+
 	public function updateIp($ip)
 	{
 		$this->load->helper("date");

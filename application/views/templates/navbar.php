@@ -18,8 +18,7 @@
 			                  <li><a href="<?php echo base_url(); ?>config">General</a></li>
 			                  <li><a href="<?php echo base_url(); ?>auth">Manage users</a></li>
 			                  <li><a href="<?php echo base_url(); ?>clients">Clients</a></li>
-			                  <li role="separator" class="divider"></li>
-			                  <li><a href="#">Stats</a></li>
+			                  
 			                </ul>
 			            </li>
 			            <li><a href="<?php echo base_url(); ?>logout">Logout</a></li>

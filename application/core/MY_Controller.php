@@ -8,6 +8,8 @@ class MY_Controller extends CI_Controller {
 
 		parent::__construct();
 
+		$this->lang->load('general');
+
 		if (!$this->ion_auth->logged_in())
 		{
 			redirect('auth/login');

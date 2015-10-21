@@ -96,6 +96,13 @@ class Ajax extends MY_Controller {
             echo json_encode($this->apikey->regenerate_apikey($id));
     }
 
+    public function goRedirection($id)
+    {
+        if(!isset($id))
+            echo FALSE;
+        else
+            echo json_encode($this->config_data->goRedirection($id));
+    }
     
 
 }

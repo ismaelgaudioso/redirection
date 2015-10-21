@@ -16,6 +16,7 @@ class Main extends MY_Controller {
 		$redirections = $this->config_data->get_redirections();
 		$data = array(
 				"page_title"=>"Home",
+				"js" => array(base_url("assets/js/main-view.js")),
 				"current_ip"=>array("ip" => $ip["address"],
 									"last_date" => nice_date(unix_to_human($ip["last_update"],TRUE,'eu'),'d-m-Y h:m:s')),
 				"redirections"=> $redirections
