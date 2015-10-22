@@ -9,7 +9,7 @@
 
 <div class="container">
 
-	<h2>Edit group</h2>
+	<h2><?php echo lang("edit_group_title"); ?></h2>
 
 <?php echo form_open(current_url());?>
 

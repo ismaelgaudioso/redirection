@@ -1,6 +1,8 @@
 <form class="form-signin" action="<?php echo base_url();?>auth/login" method="post" accept-charset="utf-8">
 
-        <h2 class="form-signin-heading"><?php echo lang('login_heading');?></h2>
+        <img src="<?php echo base_url();?>assets/images/vertical.png"  alt="logo" style="width:300px;margin:5px auto 20px auto;"/>
+
+        <h2 class="form-signin-heading" style="display:none;"><?php echo lang('login_heading');?></h2>
         <p><?php echo lang('login_subheading');?></p>
 
         <?php if($message): ?>
@@ -21,5 +23,5 @@
 
         <p><a href="forgot_password"><?php echo lang('login_forgot_password');?></a></p>
         
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit"><?php echo lang("login_sign_in_button"); ?></button>
 </form>

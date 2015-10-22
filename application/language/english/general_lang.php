@@ -37,3 +37,24 @@ $lang["delete_redirection"] = "Delete redirection";
 $lang["change_button"] = "Change";
 $lang["update_button"] = "Update";
 $lang["update_ip_message"] = "This action update the IP Address with your current public IP. Are you sure?";
+
+//Clients view
+$lang["clients_title"] = "Clients";
+$lang["api_key"] = "API Key";
+$lang["date"] = "Date";
+$lang["copy_url_button"] = "Copy URL";
+$lang["regenerate_button"] = "Regenerate";
+$lang["delete_api_key"] = "Delete API Key";
+$lang["delete_api_key_message"] = "Are you sure you want remove this api key? Clients that current use it will be blocked.";
+$lang["regenerate_api_key_message"] = "Are you sure you want regenerate this api key? Clients will have to update the new API Key value.";
+$lang["new_api_key"] = "New API Key";
+
+
+//Navbar
+$lang["toggle_navigation"] = "Toggle Navigation";
+$lang["home"] = "Home";
+$lang["config"] = "Config";
+$lang["general"] = "General";
+$lang["users"] = "Users";
+$lang["clients"] = "Clients";
+$lang["logout"] = "Logout";

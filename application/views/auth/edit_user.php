@@ -9,7 +9,7 @@
 
 <div class="container">
 
-  <h2>Edit user</h2>
+  <h2><?php echo lang("edit_user_heading"); ?></h2>
 
 <?php echo form_open(uri_string());?>
 

@@ -23,10 +23,5 @@
 		        <?php endforeach; ?>		       
 		    </div>
 
-	      <hr>
-
-	      <footer>
-	        <p>© Free Redirection 2015</p>
-	      </footer>
 	    </div>
 

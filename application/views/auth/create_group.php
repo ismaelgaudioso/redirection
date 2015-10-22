@@ -8,7 +8,7 @@
 
 <div class="container">
 
-	<h2>Create group</h2>
+	<h2><?php echo lang('create_group_title'); ?></h2>
 
 <?php echo form_open("auth/create_group");?>
 

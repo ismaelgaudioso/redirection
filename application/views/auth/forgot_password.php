@@ -8,7 +8,7 @@
 
 <div class="container">
 
-	<h2>Forgot password?</h2>
+	<h2><?php echo lang("forgot_password_heading"); ?></h2>
 
 <?php echo form_open("auth/forgot_password");?>
 

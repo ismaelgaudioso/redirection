@@ -8,7 +8,7 @@
 
 
 <div class="container">
-	<h2>Users</h2>
+	<h2><?php echo lang("index_heading"); ?></h2>
 	<table class="table table-striped">
 		<tr>
 			<th><?php echo lang('index_fname_th');?></th>

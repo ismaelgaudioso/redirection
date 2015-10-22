@@ -8,7 +8,7 @@
 
 <div class="container">
 
-  <h2>Create new User</h2>
+  <h2><?php echo lang('create_user_heading');?></h2>
 
 <?php echo form_open("auth/create_user");?>
 

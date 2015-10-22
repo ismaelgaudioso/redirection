@@ -1,7 +1,7 @@
 
 <div class="container">
 
-	<h2>Deactive user</h2>
+	<h2><?php echo lang("deactivate_heading"); ?></h2>
 
 <?php echo form_open("auth/deactivate/".$user->id);?>
 
